@@ -10,7 +10,7 @@ public class MyUIManage : MonoBehaviour
     public GameObject[] GameUI;//传递UI界面
 
     Vector3 show = new Vector3(0, 0, 0);//显示UI
-    Vector3 noShow = new Vector3(-800f, 0, 0);//不显示UI
+    Vector3 noShow = new Vector3(-1800f, 0, 0);//不显示UI
 
     Slider sl;//音量条
     public float volum=1;//音量参数

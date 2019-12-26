@@ -77,7 +77,7 @@ public class MyPacManGameModeBase : MonoBehaviour
     /// </summary>
     public void ExitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;//打包前的退出
+        //UnityEditor.EditorApplication.isPlaying = false;//打包前的退出
         Application.Quit();//打包后的退出
     }
 }
