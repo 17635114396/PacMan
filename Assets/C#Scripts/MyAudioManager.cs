@@ -35,7 +35,7 @@ public class MyAudioManager : MonoBehaviour
     void Update()
     {
         //更新音量
-        audioSource1.volume = uiManage.GetComponent<MyUIManage>().volum;
+        audioSource1.volume = uiManage.GetComponent<MyUIManage>().volum*0.5f;
         audioSource2.volume = uiManage.GetComponent<MyUIManage>().volum;
     }
 

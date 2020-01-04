@@ -300,9 +300,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e2494b25d05df35428d182285066ee32, type: 3}
   - {fileID: 8300000, guid: 199b3407f07277e4b905b5cfa238fb59, type: 3}
   - {fileID: 8300000, guid: 6e1065474bfa3bf4ba43852f0756ceee, type: 3}
-  - {fileID: 8300000, guid: 4dc52ab3861d7ec40a92fb102c6bb51e, type: 3}
+  - {fileID: 8300000, guid: c346608506989a943b776927c0cd549b, type: 3}
   - {fileID: 8300000, guid: c99f01d795ae8ba468f5e195c0b38c5b, type: 3}
   - {fileID: 8300000, guid: 8979271062d1b3e46875a8446e3c973d, type: 3}
+  - {fileID: 8300000, guid: b93e1834298af0a4ea1a3a6e7c0f42ea, type: 3}
+  - {fileID: 8300000, guid: 0f4bdf578bfa281419fecae822614101, type: 3}
+  - {fileID: 8300000, guid: ae77a2078ff4e7a4b8122916f31c93ab, type: 3}
+  - {fileID: 8300000, guid: 4b97232641f242a4da4187318ed2347a, type: 3}
+  - {fileID: 8300000, guid: e96526b76bb9f1e46beabd36fd921b16, type: 3}
+  - {fileID: 8300000, guid: e2301af0aba78bf4b979f99b36c24b64, type: 3}
   longNumberAudio: 0
 --- !u!82 &122846760
 AudioSource:
@@ -316,7 +322,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.49
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1643,8 +1649,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  far clip plane: 20
+  field of view: 20
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1669,8 +1675,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9448242, y: 0.41088867, z: -3.3347168}
+  m_LocalRotation: {x: 0.43079817, y: -0, z: -0, w: 0.90244836}
+  m_LocalPosition: {x: -2.958496, y: 10.188562, z: -15.924205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 122846755}

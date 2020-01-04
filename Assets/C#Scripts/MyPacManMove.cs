@@ -87,6 +87,11 @@ public class MyPacManMove : MonoBehaviour
             }
             else//还未胜利
             {
+                //危局条件
+                if (collections.Length == 10)
+                {
+                    gameMode.GetComponent<MyAudioManager>().PlayLongAudio(11);
+                }
                 gameMode.GetComponent<MyAudioManager>().PlayAudio(0);
                 Destroy(other.gameObject);
             }

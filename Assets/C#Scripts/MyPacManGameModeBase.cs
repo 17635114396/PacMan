@@ -73,6 +73,15 @@ public class MyPacManGameModeBase : MonoBehaviour
     }
 
     /// <summary>
+    /// 危局状态，执行相关操作
+    /// </summary>
+    public void SetWeiju()
+    {
+        this.GetComponent<MyAudioManager>().PlayLongAudio(11);
+
+    }
+
+    /// <summary>
     /// 退出游戏
     /// </summary>
     public void ExitGame()
