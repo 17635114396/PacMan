@@ -33,7 +33,7 @@ public class MyPacManMove : MonoBehaviour
         //游戏进行中时玩家可以移动
         if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.Playing)
         {
-            transform.LookAt(this.transform.position + diff);
+            transform.LookAt(this.transform.position + diff);//可以向斜上方看
             this.transform.position += diff * speed;
         }
     }
