@@ -1,0 +1,67 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# ´´½¨µÄÎÄ¼ş:04.01.2020 18:20:40
+
+newmtl eyeball_Eye_Tranz_001
+	Ns 705.4140
+	Ni 1.5000
+	d 0.1701
+	Tr 0.8299
+	Tf 0.1701 0.1701 0.1701 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 0.6076 0.6076 0.6076
+	Ks 0.4392 0.4392 0.4392
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Kd C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg
+	bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg
+
+newmtl eyeball_Eye_Iris
+	Ns 17.6471
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 0.0353 0.1260 0.2991
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Kd C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Ks C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Ke C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg
+	bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg
+
+newmtl eyeball_EyeBlack
+	Ns 1000.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Kd C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+
+newmtl eyeball_Eye_white
+	Ns 550.9554
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 0.4130 0.4130 0.4130
+	Ks 0.6270 0.6270 0.6270
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Kd C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_Ks C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_D.jpg
+	map_bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg
+	bump C:\Users\dell\Desktop\ä¯ÀÀÆ÷ÏÂÔØ\ÑÛÖé×Ó\ÑÛÇò 3DS obj dae blend fbx dxf stl~\Eyeball\textures\Eye_N.jpg

@@ -90,6 +90,7 @@ public class MyPacManMove : MonoBehaviour
                 //危局条件
                 if (collections.Length == 10)
                 {
+                    //改变地图颜色，灯光，后续做
                     gameMode.GetComponent<MyAudioManager>().PlayLongAudio(11);
                 }
                 gameMode.GetComponent<MyAudioManager>().PlayAudio(0);
@@ -99,7 +100,7 @@ public class MyPacManMove : MonoBehaviour
         else if (other.tag == "Enemy")
             {
                 gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
-                gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
+                //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
                 gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
             }
         
