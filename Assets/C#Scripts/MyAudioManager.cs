@@ -7,8 +7,8 @@ public class MyAudioManager : MonoBehaviour
     GameObject uiManage;//传递音量条
     float beginVol = 1f;//起始音量
 
-    AudioSource audioSource1;
-    AudioSource audioSource2;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
 
     public AudioClip[] allLittleAudio;//所有短音频
     public int littleNumberAudio;//短音频索引
@@ -59,4 +59,5 @@ public class MyAudioManager : MonoBehaviour
         audioSource2.clip = allLongAudio[i];
         audioSource2.Play();
     }
+    
 }

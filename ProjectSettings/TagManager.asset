@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collections
   - Enemy
+  - GoodFood
   layers:
   - Default
   - TransparentFX

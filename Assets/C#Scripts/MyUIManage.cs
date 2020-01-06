@@ -170,6 +170,7 @@ public class MyUIManage : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f,0.75f,-4.5f);
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
+        GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
         //初始化音乐
         gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
     }
@@ -187,6 +188,7 @@ public class MyUIManage : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0.75f, -4.5f);
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
+        GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
     }
 
     /// <summary>

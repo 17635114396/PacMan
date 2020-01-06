@@ -98,11 +98,21 @@ public class MyPacManMove : MonoBehaviour
             }
         }
         else if (other.tag == "Enemy")
-            {
-                gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
-                //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
-                gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
-            }
+        {
+            gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
+            //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
+            gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
+        }
+        else if (other.tag == "GoodFood")
+        {
+            gameMode.GetComponent<MyAudioManager>().PlayLongAudio(7);
+            gameMode.GetComponent<MyAudioManager>().audioSource2.loop = false;
+            Destroy(other.gameObject);
+        }
         
+    }
+
+    void ExamineBaTi() {
+       // gameMode.GetComponent<MyAudioManager>().audioSource2.
     }
 }
