@@ -9,6 +9,7 @@ TagManager:
   - GoodFood
   - fire
   - EnemyRebornPos
+  - CrashWall
   layers:
   - Default
   - TransparentFX

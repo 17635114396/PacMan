@@ -136,6 +136,8 @@ public class MyUIManage : MonoBehaviour
     /// </summary>
     public void ShowSet()
     {
+
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(5);
         gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Set;
     }
 
@@ -144,6 +146,7 @@ public class MyUIManage : MonoBehaviour
     /// </summary>
     public void ReturnMenu()
     {
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(9);
         gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Menu;
     }
 
@@ -167,7 +170,7 @@ public class MyUIManage : MonoBehaviour
         //初始化敌人
         GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
         //初始化主角位置
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f,0.75f,-4.5f);
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f,0f,-4.5f);
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
@@ -186,7 +189,7 @@ public class MyUIManage : MonoBehaviour
         //初始化敌人
         GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
         //初始化主角位置
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0.75f, -4.5f);
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0f, -4.5f);
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));

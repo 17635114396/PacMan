@@ -104,24 +104,31 @@ public class MyPacManMove : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            if (isBaTi == true) {
+            if (isBaTi == true)
+            {
+                gameMode.GetComponent<MyAudioManager>().PlayAudio(7);
                 other.gameObject.GetComponent<MeshRenderer>().enabled = false;
                 other.gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
             }
-            else {
+            else
+            {
                 gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
-                //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
-                gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
+                //gameMode.GetComponent<MyAudioManager>().PlayAudio(8);
+                gameMode.GetComponent<MyAudioManager>().PlayLongAudio(12);
             }
         }
         else if (other.tag == "GoodFood")
         {
             isBaTi = true;
-            GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 0,0);
+            GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 0, 0);
             gameMode.GetComponent<MyAudioManager>().PlayLongAudio(7);
             gameMode.GetComponent<MyAudioManager>().audioSource2.loop = false;
-            
+
             Destroy(other.gameObject);
         }
+        //else if (other.tag == "CrashWall")
+        //{
+        //    gameMode.GetComponent<MyAudioManager>().PlayAudio(6);
+        //}
     }
 }

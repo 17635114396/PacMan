@@ -69,6 +69,7 @@ public class MyPacManGameModeBase : MonoBehaviour
     public void SetModePlying()
     {
         gameState = GameState.Playing;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
         this.GetComponent<MyAudioManager>().PlayLongAudio(0);
     }
 
@@ -86,6 +87,7 @@ public class MyPacManGameModeBase : MonoBehaviour
     /// </summary>
     public void ExitGame()
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
         //UnityEditor.EditorApplication.isPlaying = false;//打包前的退出
         Application.Quit();//打包后的退出
     }
