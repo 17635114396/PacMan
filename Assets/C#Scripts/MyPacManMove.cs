@@ -12,10 +12,15 @@ public class MyPacManMove : MonoBehaviour
 
     public int i = 0;//相机编号
 
+    public bool isBaTi;
+
+    Transform EnemyRebornPos;
+
     // Start is called before the first frame update
     private void Start()
     {
         gameMode = GameObject.Find("Camera");
+        EnemyRebornPos = GameObject.FindGameObjectWithTag("EnemyRebornPos").transform;
     }
 
     // fixedUpdate is called once per frame
@@ -99,20 +104,24 @@ public class MyPacManMove : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
-            //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
-            gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
+            if (isBaTi == true) {
+                other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                other.gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
+            }
+            else {
+                gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
+                //gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
+                gameMode.GetComponent<MyAudioManager>().PlayLongAudio(4);
+            }
         }
         else if (other.tag == "GoodFood")
         {
+            isBaTi = true;
+            GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 0,0);
             gameMode.GetComponent<MyAudioManager>().PlayLongAudio(7);
             gameMode.GetComponent<MyAudioManager>().audioSource2.loop = false;
+            
             Destroy(other.gameObject);
         }
-        
-    }
-
-    void ExamineBaTi() {
-       // gameMode.GetComponent<MyAudioManager>().audioSource2.
     }
 }

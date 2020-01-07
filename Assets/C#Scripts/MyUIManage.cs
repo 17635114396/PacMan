@@ -173,6 +173,7 @@ public class MyUIManage : MonoBehaviour
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
         //初始化音乐
         gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
+        GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
     }
 
     /// <summary>
@@ -189,6 +190,7 @@ public class MyUIManage : MonoBehaviour
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
+        GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
     }
 
     /// <summary>

@@ -16,6 +16,7 @@ public class MyAudioManager : MonoBehaviour
     public AudioClip[] allLongAudio;//所有长音频
     public int longNumberAudio;//长音频索引
 
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class MyAudioManager : MonoBehaviour
 
         audioSource1.volume = beginVol;
         audioSource2.volume = beginVol;
+
+        player= GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class MyAudioManager : MonoBehaviour
         //更新音量
         audioSource1.volume = uiManage.GetComponent<MyUIManage>().volum*0.5f;
         audioSource2.volume = uiManage.GetComponent<MyUIManage>().volum;
+        ChangeAudioAsPac();
     }
 
     /// <summary>
@@ -59,5 +63,19 @@ public class MyAudioManager : MonoBehaviour
         audioSource2.clip = allLongAudio[i];
         audioSource2.Play();
     }
-    
+
+    /// <summary>
+    /// 检测无敌状态消失要做的事
+    /// </summary>
+    public void ChangeAudioAsPac()
+    {
+        bool c = audioSource2.isPlaying;
+        if (c== false)
+        {
+            PlayLongAudio(10);
+            GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
+            player.GetComponent<MyPacManMove>().isBaTi = false;
+            audioSource2.loop = true;
+        }
+    }
 }
