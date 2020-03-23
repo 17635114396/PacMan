@@ -11,12 +11,14 @@ public class MyAudioManager : MonoBehaviour
     public AudioSource audioSource2;
 
     public AudioClip[] allLittleAudio;//所有短音频
-    public int littleNumberAudio;//短音频索引
+    //public int littleNumberAudio;//短音频索引
 
     public AudioClip[] allLongAudio;//所有长音频
-    public int longNumberAudio;//长音频索引
+    //public int longNumberAudio;//长音频索引
 
     GameObject player;
+
+    //GameObject[] enemies;//传递敌人
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +29,12 @@ public class MyAudioManager : MonoBehaviour
         PlayLongAudio(3);
 
         uiManage = GameObject.Find("Canvas");
-
         audioSource1.volume = beginVol;
         audioSource2.volume = beginVol;
 
-        player= GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        //enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -70,12 +73,18 @@ public class MyAudioManager : MonoBehaviour
     public void ChangeAudioAsPac()
     {
         bool c = audioSource2.isPlaying;
-        if (c== false)
+        if (c == false)
         {
             PlayLongAudio(10);
             GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
             player.GetComponent<MyPacManMove>().isBaTi = false;
             audioSource2.loop = true;
+
+            //foreach (GameObject i in enemies)
+            //{
+            //    i.GetComponent<MyEnemy>().TracePlayer();
+            //}
+
         }
     }
 }

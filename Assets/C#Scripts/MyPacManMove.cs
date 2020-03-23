@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyPacManMove : MonoBehaviour
 {
     GameObject gameMode;//传递游戏模式
+    GameObject[] enemies;//传递敌人
 
 
     public float speed = 1;//位移速度
@@ -12,15 +13,16 @@ public class MyPacManMove : MonoBehaviour
 
     public int i = 0;//相机编号
 
-    public bool isBaTi;
+    public bool isBaTi;//是否为霸体状态
 
-    Transform EnemyRebornPos;
+    Transform EnemyRebornPos;//敌人重生老巢位置
 
     // Start is called before the first frame update
     private void Start()
     {
         gameMode = GameObject.Find("Camera");
         EnemyRebornPos = GameObject.FindGameObjectWithTag("EnemyRebornPos").transform;
+
     }
 
     // fixedUpdate is called once per frame
@@ -28,6 +30,7 @@ public class MyPacManMove : MonoBehaviour
     {
         GetDiff();
         Move();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     /// <summary>
@@ -109,6 +112,7 @@ public class MyPacManMove : MonoBehaviour
                 gameMode.GetComponent<MyAudioManager>().PlayAudio(7);
                 other.gameObject.GetComponent<MeshRenderer>().enabled = false;
                 other.gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
+                other.gameObject.GetComponent<MyEnemy>().nav.speed = 0.7f;
             }
             else
             {
@@ -125,6 +129,8 @@ public class MyPacManMove : MonoBehaviour
             gameMode.GetComponent<MyAudioManager>().audioSource2.loop = false;
 
             Destroy(other.gameObject);
+
+
         }
         //else if (other.tag == "CrashWall")
         //{

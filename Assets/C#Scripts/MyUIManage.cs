@@ -13,7 +13,7 @@ public class MyUIManage : MonoBehaviour
     Vector3 noShow = new Vector3(-1800f, 0, 0);//不显示UI
 
     Slider sl;//音量条
-    public float volum=1;//音量参数
+    public float volum = 1;//音量参数
 
     private void Awake()
     {
@@ -56,7 +56,7 @@ public class MyUIManage : MonoBehaviour
         }
         else if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.Set)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             for (int i = 0; i < GameUI.Length; i++)
             {
                 if (i == 4)
@@ -71,7 +71,7 @@ public class MyUIManage : MonoBehaviour
         }
         else if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.Menu)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             for (int i = 0; i < GameUI.Length; i++)
             {
                 if (i == 0)
@@ -86,7 +86,7 @@ public class MyUIManage : MonoBehaviour
         }
         else if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.Pause)
         {
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             for (int i = 0; i < GameUI.Length; i++)
             {
                 if (i == 1)
@@ -116,7 +116,7 @@ public class MyUIManage : MonoBehaviour
         else if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.GameOver)
         {
             gameMode.GetComponent<MyAudioManager>().PlayAudio(2);
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             for (int i = 0; i < GameUI.Length; i++)
             {
                 if (i == 3)
@@ -130,13 +130,12 @@ public class MyUIManage : MonoBehaviour
             }
         }
     }
-     
+
     /// <summary>
     /// 菜单->更改模式为设置
     /// </summary>
     public void ShowSet()
     {
-
         gameMode.GetComponent<MyAudioManager>().PlayAudio(5);
         gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Set;
     }
@@ -156,7 +155,8 @@ public class MyUIManage : MonoBehaviour
     public void AudioChange()
     {
         volum = sl.value;
-    } 
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(4);
+    }
 
     /// <summary>
     /// 失败->初始化场景信息
@@ -170,12 +170,13 @@ public class MyUIManage : MonoBehaviour
         //初始化敌人
         GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
         //初始化主角位置
-        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f,0f,-4.5f);
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0f, -4.5f);
         //初始化豆子
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
         //初始化音乐
         gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
+        //初始化火焰特效
         GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
     }
 
@@ -203,7 +204,7 @@ public class MyUIManage : MonoBehaviour
     {
         //清空场景中的敌人
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i <enemies.Length; i++)
+        for (int i = 0; i < enemies.Length; i++)
         {
             Destroy(enemies[i]);
         }
