@@ -167,6 +167,9 @@ public class MyUIManage : MonoBehaviour
         ReturnMenu();
         //清空敌人
         ClearEnemy();
+        //清空技能物体
+        var MagicThing = GameObject.FindGameObjectWithTag("TuDun");
+        Destroy(MagicThing);
         //初始化敌人
         GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
         //初始化主角位置

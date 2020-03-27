@@ -114,6 +114,10 @@ public class MyPacManMove : MonoBehaviour
                 other.gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
                 other.gameObject.GetComponent<MyEnemy>().nav.speed = 0.7f;
             }
+            else if (other.GetComponent<MeshRenderer>().enabled == false)
+            {
+
+            }
             else
             {
                 gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;

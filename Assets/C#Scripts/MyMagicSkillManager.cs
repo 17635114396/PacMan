@@ -7,7 +7,7 @@ public class MyMagicSkillManager : MonoBehaviour
     GameObject tudun;
     GameObject player;
     Transform t;
-
+    int i = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,14 @@ public class MyMagicSkillManager : MonoBehaviour
    //创建土遁墙
     public void TuDun()
     {
-        GameObject.Instantiate(Resources.Load("Prefabs/TuDun"), t,true);
+        i++;
+        Debug.Log(i);
+        var Tudunobject= GameObject.Instantiate(Resources.Load("Prefabs/TuDun"), t, true);
+        Destroy(Tudunobject,4f);
+        GameObject.FindGameObjectWithTag("TuDun").transform.position = player.transform.position+new Vector3(1,0,1);
+    }
+    IEnumerator WaitSeconds()
+    {
+        yield return new WaitForSeconds(4f);
     }
 }

@@ -9,6 +9,7 @@ public class MyEnemy : MonoBehaviour
     GameObject gameMode;
 
     public Transform[] Enemy;
+    Transform EnemyRebornPos;//敌人重生老巢位置
 
     public NavMeshAgent nav;//导航初始化
     public bool isProtect;//是否为守护怪
@@ -23,6 +24,7 @@ public class MyEnemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         gameMode = GameObject.Find("Camera");
         pacman = GameObject.FindGameObjectWithTag("Player");
+        EnemyRebornPos = GameObject.FindGameObjectWithTag("EnemyRebornPos").transform;
     }
 
     // Update is called once per frame
@@ -101,6 +103,13 @@ public class MyEnemy : MonoBehaviour
         {
             //yield return new WaitForSeconds(5.0f);
             this.GetComponent<MeshRenderer>().enabled = true;
+        }
+        if (other.tag == "TuDun")
+        {
+            gameMode.GetComponent<MyAudioManager>().PlayAudio(7);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
+            gameObject.GetComponent<MyEnemy>().nav.speed = 0.7f;
         }
     }
 
