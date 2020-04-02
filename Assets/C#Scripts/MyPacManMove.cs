@@ -17,9 +17,12 @@ public class MyPacManMove : MonoBehaviour
 
     Transform EnemyRebornPos;//敌人重生老巢位置
 
+    GameObject videoManager;
+
     // Start is called before the first frame update
     private void Start()
     {
+        videoManager = GameObject.Find("VideoPanel");
         gameMode = GameObject.Find("Camera");
         EnemyRebornPos = GameObject.FindGameObjectWithTag("EnemyRebornPos").transform;
 
@@ -127,6 +130,10 @@ public class MyPacManMove : MonoBehaviour
         }
         else if (other.tag == "GoodFood")
         {
+            videoManager.GetComponent<MyVideoManager>().PlayVideo(2);
+            videoManager.GetComponent<MyVideoManager>().i = 3;
+            gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Pause;
+
             isBaTi = true;
             GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 0, 0);
             gameMode.GetComponent<MyAudioManager>().PlayLongAudio(7);

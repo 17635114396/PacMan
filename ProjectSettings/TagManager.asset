@@ -11,6 +11,7 @@ TagManager:
   - EnemyRebornPos
   - CrashWall
   - TuDun
+  - KuWu
   layers:
   - Default
   - TransparentFX

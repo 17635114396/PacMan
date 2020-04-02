@@ -11,7 +11,7 @@ public class MyVideoManager : MonoBehaviour
     float aphle = 0.001f;
     public GameObject cameras;
     public GameObject magicUI;
-    int i;//参数判断执行哪一个技能
+    public int i;//参数判断执行哪一个技能
 
     //public GameObject magicUI;
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class MyVideoManager : MonoBehaviour
     /// </summary>
     public void PlayVideo(int i)
     {
-        aphle = 1;//透明度
+        aphle = 0.7f;//透明度
         cameras.GetComponent<MyCameraManage>().ShowCamera(1);//相机切换
         vPlayer.targetCameraAlpha = aphle;
         vPlayer.clip = vc[i];//视频片段
@@ -48,17 +48,38 @@ public class MyVideoManager : MonoBehaviour
         {
             TuDunEndReached();
         }
-        else {
-            //。。。其他技能函数endreach接口
+        else if (i == 2)
+        {
+            KuWuEndReached();
         }
-
+        else if (i == 3) {
+            XianRenEndReached();
+        }
+        //。。。其他技能函数endreach接口
     }
+
+    /// <summary>
+    /// 各个技能执行完事件汇总接口
+    /// </summary>
     void TuDunEndReached()
     {
+        CameraReturn();
+        magicUI.GetComponent<MyMagicSkillManager>().TuDun();
+    }
+    void KuWuEndReached() {
+        CameraReturn();
+    }
+    void XianRenEndReached() {
+        CameraReturn();
+    }
+
+    /// <summary>
+    /// 恢复技能，时间和相机渲染
+    /// </summary>
+    void CameraReturn() {
         i = 0;//技能标签归零
         vPlayer.targetCameraAlpha = aphle;
         cameras.GetComponent<MyCameraManage>().ShowCamera(0);
-        magicUI.GetComponent<MyMagicSkillManager>().TuDun();
         gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Playing;
     }
 
