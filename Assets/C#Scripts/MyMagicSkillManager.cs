@@ -25,7 +25,7 @@ public class MyMagicSkillManager : MonoBehaviour
    //创建土遁墙
     public void TuDun()
     {
-        //Transform tuDunPos = GameObject.Find("TuDunPos").transform;
+        //Transform tuDunPos = GameObject.Find("TuDunPos").transform;//引用变量生成的土遁会一直跟着主角移动
         i++;
         Debug.Log(i);
         var Tudunobject= GameObject.Instantiate(Resources.Load("Prefabs/TuDun"), t, true);

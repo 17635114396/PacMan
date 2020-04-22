@@ -18,6 +18,7 @@ public class MyPacManMove : MonoBehaviour
     Transform EnemyRebornPos;//敌人重生老巢位置
 
     GameObject videoManager;
+    GameObject scoreText;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,6 +26,7 @@ public class MyPacManMove : MonoBehaviour
         videoManager = GameObject.Find("VideoPanel");
         gameMode = GameObject.Find("Camera");
         EnemyRebornPos = GameObject.FindGameObjectWithTag("EnemyRebornPos").transform;
+        scoreText = GameObject.Find("Canvas");
 
     }
 
@@ -56,23 +58,19 @@ public class MyPacManMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            diff = new Vector3(-1, 0, 0);
-            //i = 0;
+            diff = new Vector3(-1, 0, 0);//i = 0;
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            diff = new Vector3(0, 0, -1);
-            //i = 3;
+            diff = new Vector3(0, 0, -1); //i = 3;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            diff = new Vector3(1, 0, 0);
-            //i = 2;
+            diff = new Vector3(1, 0, 0);//i = 2;
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            diff = new Vector3(0, 0, 1);
-            //i = 1;
+            diff = new Vector3(0, 0, 1);//i = 1;
         }
         else
             diff = Vector3.zero;
@@ -85,9 +83,12 @@ public class MyPacManMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject[] collections = GameObject.FindGameObjectsWithTag("Collections");
+        //碰到普通豆子
         if (other.tag == "Collections")
         {
-            if (collections.Length == 1)//胜利条件:最后一个
+            scoreText.GetComponent<MyScoreManager>().getPoint += scoreText.GetComponent<MyScoreManager>().commonGetPoint;
+            //胜利条件:最后一个
+            if (collections.Length == 1)
             {
                 //设置游戏状态为胜利
                 gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Win;
@@ -96,7 +97,8 @@ public class MyPacManMove : MonoBehaviour
                 gameMode.GetComponent<MyAudioManager>().PlayLongAudio(5);
                 Destroy(other.gameObject);
             }
-            else//还未胜利
+            //还未胜利
+            else
             {
                 //危局条件
                 if (collections.Length == 10)
@@ -108,8 +110,10 @@ public class MyPacManMove : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        //碰到敌人
         else if (other.tag == "Enemy")
         {
+            //无敌状态
             if (isBaTi == true)
             {
                 gameMode.GetComponent<MyAudioManager>().PlayAudio(7);
@@ -117,10 +121,12 @@ public class MyPacManMove : MonoBehaviour
                 other.gameObject.GetComponent<MyEnemy>().nav.SetDestination(EnemyRebornPos.position);
                 other.gameObject.GetComponent<MyEnemy>().nav.speed = 0.7f;
             }
+            //不是无敌状态，但敌人是幽灵状态
             else if (other.GetComponent<MeshRenderer>().enabled == false)
             {
 
             }
+            //不是无敌状态，碰到敌人游戏失败
             else
             {
                 gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.GameOver;
@@ -128,8 +134,11 @@ public class MyPacManMove : MonoBehaviour
                 gameMode.GetComponent<MyAudioManager>().PlayLongAudio(12);
             }
         }
+        //吃到灵豆，设置主角为无敌状态及
         else if (other.tag == "GoodFood")
         {
+            scoreText.GetComponent<MyScoreManager>().getPoint += scoreText.GetComponent<MyScoreManager>().superGetpoint;
+
             videoManager.GetComponent<MyVideoManager>().PlayVideo(2);
             videoManager.GetComponent<MyVideoManager>().i = 3;
             gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Pause;
@@ -143,6 +152,7 @@ public class MyPacManMove : MonoBehaviour
 
 
         }
+        //碰到墙，待完善
         //else if (other.tag == "CrashWall")
         //{
         //    gameMode.GetComponent<MyAudioManager>().PlayAudio(6);

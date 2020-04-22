@@ -14,6 +14,7 @@ public class MyUIManage : MonoBehaviour
 
     Slider sl;//音量条
     public float volum = 1;//音量参数
+    GameObject scoreText;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class MyUIManage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreText = GameObject.Find("Canvas");
         gameMode = GameObject.Find("Camera");
         GameUI[4].transform.localPosition = noShow;
         sl = GameObject.Find("AudioSlider").GetComponent<Slider>();
@@ -181,6 +183,8 @@ public class MyUIManage : MonoBehaviour
         gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
         //初始化火焰特效
         GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
+        //初始化分数
+        scoreText.GetComponent<MyScoreManager>().getPoint = 0;
     }
 
     /// <summary>

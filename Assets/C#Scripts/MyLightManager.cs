@@ -25,8 +25,9 @@ public class MyLightManager : MonoBehaviour
         {
             MyCloseLight(1);
         }
-        //if (Input.GetKeyDown(KeyCode.Tab))//根据按键开关灯
-        //{
+        //根据按键开关灯
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
         //    if (isLight == true)
         //    {
         //        isLight = false;
@@ -39,7 +40,7 @@ public class MyLightManager : MonoBehaviour
         //        MyOpenLight(0);
         //        MyOpenLight(1);
         //    }
-        //}
+        }
 
     }
 
