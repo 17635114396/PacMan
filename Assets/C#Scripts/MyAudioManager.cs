@@ -18,6 +18,7 @@ public class MyAudioManager : MonoBehaviour
 
     GameObject player;
 
+    public float volumChange=1;
     //GameObject[] enemies;//传递敌人
 
     // Start is called before the first frame update
@@ -43,6 +44,8 @@ public class MyAudioManager : MonoBehaviour
         //更新音量
         audioSource1.volume = uiManage.GetComponent<MyUIManage>().volum;
         audioSource2.volume = uiManage.GetComponent<MyUIManage>().volum;
+        audioSource1.volume = volumChange;
+        audioSource2.volume = volumChange;
         ChangeAudioAsPac();
     }
 
@@ -72,19 +75,22 @@ public class MyAudioManager : MonoBehaviour
     /// </summary>
     public void ChangeAudioAsPac()
     {
-        bool c = audioSource2.isPlaying;
-        if (c == false)
+        if (audioSource2.clip == allLongAudio[7])
         {
-            PlayLongAudio(10);
-            GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
-            player.GetComponent<MyPacManMove>().isBaTi = false;
-            audioSource2.loop = true;
+            bool c = audioSource2.isPlaying;
+            if (c == false)
+            {
+                PlayLongAudio(10);
+                GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
+                player.GetComponent<MyPacManMove>().isBaTi = false;
+                audioSource2.loop = true;
 
-            //foreach (GameObject i in enemies)
-            //{
-            //    i.GetComponent<MyEnemy>().TracePlayer();
-            //}
+                //foreach (GameObject i in enemies)
+                //{
+                //    i.GetComponent<MyEnemy>().TracePlayer();
+                //}
 
+            }
         }
     }
 }

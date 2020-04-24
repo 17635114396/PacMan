@@ -6,17 +6,20 @@ public class MyMaterialManager : MonoBehaviour
 {
     public Material[] allMaterial;
     public GameObject[] go;
-    int i = 0;
+    int i;
     GameObject gameMode;//传递游戏音效
+    
     // Start is called before the first frame update
     void Start()
     {
         gameMode = GameObject.Find("Camera");
+        i = GameObject.Find("Canvas").GetComponent<MyButtonManager>().materialIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
+        i = GameObject.Find("Canvas").GetComponent<MyButtonManager>().materialIndex;
         if (i != 0)
             Changing(i);
     }
@@ -36,33 +39,33 @@ public class MyMaterialManager : MonoBehaviour
     /// </summary>
     //void PlayAudioForCheck() {}
 
-    /// <summary>
-    /// 根据不同的选项更换索引号
-    /// </summary>
-    public void Ocean()
-    {
-        i = 4;
-        //ReplaceMaterial(go[0], i);
-        //PlayAudioForCheck();
-    }
-    public void Grass()
-    {
-        i = 1;
-        //ReplaceMaterial(go[0], i);
-        //PlayAudioForCheck();
-    }
-    public void Desirt()
-    {
-        i = 3;
-        //ReplaceMaterial(go[0], i);
-        //PlayAudioForCheck();
-    }
-    public void Ston()
-    {
-        i = 2;
-        //ReplaceMaterial(go[0], i);
-        //PlayAudioForCheck();
-    }
+    ///// <summary>
+    ///// 根据不同的选项更换索引号
+    ///// </summary>
+    //public void Ocean()
+    //{
+    //    i = 4;
+    //    //ReplaceMaterial(go[0], i);
+    //    //PlayAudioForCheck();
+    //}
+    //public void Grass()
+    //{
+    //    i = 1;
+    //    //ReplaceMaterial(go[0], i);
+    //    //PlayAudioForCheck();
+    //}
+    //public void Desirt()
+    //{
+    //    i = 3;
+    //    //ReplaceMaterial(go[0], i);
+    //    //PlayAudioForCheck();
+    //}
+    //public void Ston()
+    //{
+    //    i = 2;
+    //    //ReplaceMaterial(go[0], i);
+    //    //PlayAudioForCheck();
+    //}
 
     /// <summary>
     /// 根据索引号，改变贴图
