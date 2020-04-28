@@ -12,14 +12,9 @@ public class MyUIManage : MonoBehaviour
     Vector3 show = new Vector3(0, 0, 0);//显示UI
     Vector3 noShow = new Vector3(-1800f, 0, 0);//不显示UI
 
-    //Slider sl;//音量条
+    Slider sl;//音量条
     public float volum = 1;//音量参数
     GameObject scoreText;
-
-    public int scoreTextX;
-    public int scoreTextY;
-
-    GameObject player;
 
     private void Awake()
     {
@@ -28,13 +23,10 @@ public class MyUIManage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         scoreText = GameObject.Find("Canvas");
         gameMode = GameObject.Find("Camera");
-
         GameUI[4].transform.localPosition = noShow;
-        //sl = GameObject.Find("AudioSlider").GetComponent<Slider>();
-        scoreText.GetComponent<MyScoreManager>().ScoreText.transform.localPosition = new Vector3(10000, 0, 0);
+        sl = GameObject.Find("AudioSlider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -61,7 +53,6 @@ public class MyUIManage : MonoBehaviour
     {
         if (gameMode.GetComponent<MyPacManGameModeBase>().gameState == GameState.Playing)
         {
-            scoreText.GetComponent<MyScoreManager>().ScoreText.transform.localPosition = new Vector3(scoreTextX, scoreTextY, 0);
             Time.timeScale = 1;
             NullState();
         }
@@ -145,73 +136,64 @@ public class MyUIManage : MonoBehaviour
     /// <summary>
     /// 菜单->更改模式为设置
     /// </summary>
-    //public void ShowSet()
-    //{
-    //    gameMode.GetComponent<MyAudioManager>().PlayAudio(5);
-    //    gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Set;
-    //}
+    public void ShowSet()
+    {
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(5);
+        gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Set;
+    }
 
     /// <summary>
     ///  设置->更改游戏模式为菜单
     /// </summary>
-    //public void ReturnMenu()
-    //{
-    //    scoreText.GetComponent<MyScoreManager>().ScoreText.transform.localPosition = new Vector3(10000, 0, 0);
-    //    gameMode.GetComponent<MyAudioManager>().PlayAudio(9);
-    //    gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Menu;
-    //}
+    public void ReturnMenu()
+    {
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(9);
+        gameMode.GetComponent<MyPacManGameModeBase>().gameState = GameState.Menu;
+    }
 
     /// <summary>
     /// 设置->改变音量
     /// </summary>
-    //public void AudioChange()
-    //{
-    //    volum = sl.value;
-    //    gameMode.GetComponent<MyAudioManager>().PlayAudio(4);
-    //}
+    public void AudioChange()
+    {
+        volum = sl.value;
+        gameMode.GetComponent<MyAudioManager>().PlayAudio(4);
+    }
 
     /// <summary>
     /// 失败->初始化场景信息
     /// </summary>
-    //public void MyRestart()
-    //{
-    //    //设置游戏模式为菜单模式
-    //    ReturnMenu();
-    //    //清空敌人
-    //    ClearEnemy();
-    //    //清空技能物体
-    //    var MagicThing = GameObject.FindGameObjectWithTag("TuDun");
-    //    Destroy(MagicThing);
-    //    //初始化敌人
-    //    GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
-    //    //初始化主角位置
-    //    GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0f, -4.5f);
-    //    //初始化豆子
-    //    GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
-    //    GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
-    //    //初始化音乐
-    //    gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
-    //    //初始化火焰特效
-    //    GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
-    //    //初始化分数
-    //    scoreText.GetComponent<MyScoreManager>().getPoint = 0;
-    //    //初始化无敌状态
-    //    player.GetComponent<MyPacManMove>().isBaTi = false;
-    //    //初始化分数位置
-    //    scoreText.GetComponent<MyScoreManager>().ScoreText.transform.localPosition = new Vector3(10000, 0, 0);
-    //}
+    public void MyRestart()
+    {
+        //设置游戏模式为菜单模式
+        ReturnMenu();
+        //清空敌人
+        ClearEnemy();
+        //清空技能物体
+        var MagicThing = GameObject.FindGameObjectWithTag("TuDun");
+        Destroy(MagicThing);
+        //初始化敌人
+        GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
+        //初始化主角位置
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(0f, 0f, -4.5f);
+        //初始化豆子
+        GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
+        GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
+        //初始化音乐
+        gameMode.GetComponent<MyAudioManager>().PlayLongAudio(3);
+        //初始化火焰特效
+        GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
+        //初始化分数
+        scoreText.GetComponent<MyScoreManager>().getPoint = 0;
+    }
 
     /// <summary>
     /// 唤醒->场景基本信息【供Awake调用】
     /// </summary>
-    void MyAwakeRestart()
+    public void MyAwakeRestart()
     {
-        //清空场景中的敌人
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            Destroy(enemies[i]);
-        }
+        //清空敌人
+        ClearEnemy();
         //初始化敌人
         GameObject.Instantiate(Resources.Load("Prefabs/enemy"));
         //初始化主角位置
@@ -220,19 +202,18 @@ public class MyUIManage : MonoBehaviour
         GameObject.Instantiate(Resources.Load("Prefabs/Foods"));
         GameObject.Instantiate(Resources.Load("Prefabs/GoodFood"));
         GameObject.FindGameObjectWithTag("fire").transform.localPosition = new Vector3(0, 5f, 0);
-        //scoreText.GetComponent<MyScoreManager>().ScoreText.transform.localPosition = new Vector3(10000, 0, 0);
     }
 
     /// <summary>
     /// 失败->子函数->清空场景中的敌人
     /// </summary>
-    //void ClearEnemy()
-    //{
-    //    //清空场景中的敌人
-    //    var enemies = GameObject.FindGameObjectsWithTag("Enemy");
-    //    for (int i = 0; i < enemies.Length; i++)
-    //    {
-    //        Destroy(enemies[i]);
-    //    }
-    //}
+    void ClearEnemy()
+    {
+        //清空场景中的敌人
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
+        }
+    }
 }

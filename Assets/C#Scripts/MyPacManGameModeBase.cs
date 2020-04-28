@@ -66,12 +66,12 @@ public class MyPacManGameModeBase : MonoBehaviour
     /// <summary>
     /// 设置游戏中状态
     /// </summary>
-    //public void SetModePlying()
-    //{
-    //    gameState = GameState.Playing;
-    //    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
-    //    this.GetComponent<MyAudioManager>().PlayLongAudio(0);
-    //}
+    public void SetModePlying()
+    {
+        gameState = GameState.Playing;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
+        this.GetComponent<MyAudioManager>().PlayLongAudio(0);
+    }
 
     /// <summary>
     /// 危局状态，执行相关操作
@@ -85,10 +85,10 @@ public class MyPacManGameModeBase : MonoBehaviour
     /// <summary>
     /// 退出游戏
     /// </summary>
-    //public void ExitGame()
-    //{
-    //    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
-    //    //UnityEditor.EditorApplication.isPlaying = false;//打包前的退出
-    //    Application.Quit();//打包后的退出
-    //}
+    public void ExitGame()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MyAudioManager>().PlayAudio(5);
+        //UnityEditor.EditorApplication.isPlaying = false;//打包前的退出
+        Application.Quit();//打包后的退出
+    }
 }
