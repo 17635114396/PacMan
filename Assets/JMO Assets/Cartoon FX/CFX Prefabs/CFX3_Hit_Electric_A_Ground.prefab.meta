@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1ca16f2a31fb6a548ad8954bed1d321f
+guid: 2f9eb033ea7f47d4faf4b8ba93493787
 labels:
 - CartoonFX
 - Toon
@@ -7,5 +7,8 @@ labels:
 - Hit
 - Electric
 - Ground
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 3d4907e6bd39f474b8fd8220920e65c4
+guid: 004bc009f76d74e4caa804604ff44484
 labels:
 - CartoonFX
 - Toon
 - Particles
 - Magic
 - Ground
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

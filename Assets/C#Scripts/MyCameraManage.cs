@@ -18,15 +18,16 @@ public class MyCameraManage : MonoBehaviour
     // lateUpdate is called once per frame
     private void LateUpdate()
     {
-        ShowCamera(GetCamera());
+       // ShowCamera(GetCamera());
     }
 
     /// <summary>
     /// 显示相机
     /// </summary>
     /// <param name="i">要显示第几个相机的参数</param>
-    void ShowCamera(int i)
+    public void ShowCamera(int i)
     {
+        Debug.Log("相机切换了");
         for (int j = 1; j < ca.Length; j++)
         {
             if (i == j)
